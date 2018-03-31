@@ -70,8 +70,6 @@ var MainPageAsync = function () {
 
 
 
-
-
     //Describe as functions
 
     async function set(firstNumber, secondNumber){
