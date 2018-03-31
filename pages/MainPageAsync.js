@@ -87,12 +87,5 @@ var MainPageAsync = function () {
         await submitButton.click();
     }
 
-
-
-
-
-
-
-
 };
 module.exports = new MainPageAsync();
