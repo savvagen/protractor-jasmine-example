@@ -1,10 +1,10 @@
-const { CalculatorPage } = require("../pages/CalculatorPage");
+const { CalculatorPage } = require("../../pages/calculator/CalculatorPageAllure");
 
 
 describe('Protractor Test without async. functions', function() {
 
 
-    let mainPage;
+    var mainPage;
 
     beforeAll(function () {
         mainPage = new CalculatorPage(browser)
@@ -42,6 +42,13 @@ describe('Protractor Test without async. functions', function() {
         it('should minus 1 and 5',function() {
             mainPage.minus(10, 5);
             expect(mainPage.getResult()).toEqual('5');
+            expect(browser.getTitle()).toEqual('Super Calculator');
+
+        });
+
+        it('should calculate 10 % of 100',function() {
+            mainPage.calculate(10, '%', 100);
+            expect(mainPage.getResult()).toEqual('10');
             expect(browser.getTitle()).toEqual('Super Calculator');
 
         });

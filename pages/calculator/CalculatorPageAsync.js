@@ -35,7 +35,7 @@ var MainPageAsync = function () {
 
 
 
-    this.typeValues = async function(firstNumber, secondNumber) {
+    this.setValues = async function(firstNumber, secondNumber) {
         await firstInput.sendKeys(firstNumber);
         await secondInput.sendKeys(secondNumber);
     };
@@ -50,19 +50,6 @@ var MainPageAsync = function () {
             options[index-1].click();
         });
     };
-
-
-    this.setValues = async function(firstNumber, secondNumber) {
-        await firstInput.sendKeys(firstNumber);
-        await secondInput.sendKeys(secondNumber);
-        return this
-    };
-
-    this.pressSubmit = async function () {
-        await submitButton.click();
-        return this
-    };
-
 
     this.getResult = function() {
         return result.getText()

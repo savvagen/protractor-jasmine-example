@@ -6,80 +6,91 @@ exports.config = {
 
     //Running from Selenoid
 
-    /*seleniumAddress: 'http://localhost:4444/wd/hub',
-    capabilities: {
-        'browserName': 'chrome',
-        'version': '63.0',
-        'enableVNC': true,
-        'enableVideo': true,
-        'screenResolution': '1960x1280x24'
-    },*/
+    // seleniumAddress: 'http://localhost:4444/wd/hub',
+    // capabilities: {
+    //     'browserName': 'chrome',
+    //     'version': '63.0',
+    //     'enableVNC': true,
+    //     'enableVideo': true,
+    //     'videoName': 'protractor-test.mp4',
+    //     'name': 'protractor-test.mp4',
+    //     'screenResolution': '1960x1280x24',
+    //
+    //     framework: "jasmine",
+    //     getPageTimeout: 10000,
+    //     allScriptsTimeout: 10000,
+    //     baseUrl: 'http://juliemr.github.io',
+    //     specs: ['./specs/calculator-specs-spec-allure.js']
+    // },
 
-    // Or run in parallel
 
-    /*multiCapabilities: [{
-        'browserName': 'chrome',
-        'version': '63.0',
-        'enableVNC': true,
-        'enableVideo': true,
-        'screenResolution': '1960x1280x24',
-        specs: ['calc_spec.js']
-    },{
-        'browserName': 'firefox',
-        'version': '57.0',
-        'enableVNC': true,
-        'enableVideo': true,
-        'screenResolution': '1960x1280x24',
-        specs: ['calc_spec.js']
-    }],*/
+    // Or run selenoid in parallel
+
+    // multiCapabilities: [{
+    //     'browserName': 'chrome',
+    //     'version': '63.0',
+    //     'enableVNC': true,
+    //     'enableVideo': true,
+    //     'videoName': 'protractor-test.mp4',
+    //     'screenResolution': '1960x1280x24',
+    //     specs: ['demo-spec.js']
+    // },{
+    //     'browserName': 'firefox',
+    //     'version': '57.0',
+    //     'enableVNC': true,
+    //     'enableVideo': true,
+    //     'screenResolution': '1960x1280x24',
+    //     specs: ['demo-spec.js']
+    // }],
 
 
     //Running from Selenium grid (standalone server)
 
-    //seleniumAddress: "http://localhost:4444/wd/hub",
-    //seleniumPort: '4444',
-    seleniumServerJar: './drivers/selenium-server-standalone-3.11.0.jar',
-    directConnect: false,
+    // seleniumAddress: "http://localhost:4444/wd/hub",
+    // seleniumPort: '4444',
+    // seleniumServerJar: './drivers/selenium-server-standalone-3.11.0.jar',
+    directConnect: true,
     chromeDriver: './drivers/chromedriver',
     geckoDriver: './drivers/geckodriver',
 
 
-    /*capabilities: {
-        "browserName": "chrome",
-        maxInstances: 2,
-        specs: ['calc_spec.js', 'calc_spec2.js']
-    },*/
+    // capabilities: {
+    //     "browserName": "chrome",
+    //     maxInstances: 2,
+    //     specs: ['demo-spec.js', 'calculator-specs-spec-1.js']
+    // },
+
 
     //You can use both "count" as well "maxInstances"
 
-    /*multiCapabilities: [
-        {
-            "browserName": "chrome",
-            shardTestFiles: true,
-            maxInstances: 1,
-            specs: ['calc_spec.js']
-        },
-        {
-            "browserName": "firefox",
-            "count": 1,
-            specs: ['calc_spec.js']
-        }
-    ],*/
+    // multiCapabilities: [{
+    //         "browserName": "chrome",
+    //         shardTestFiles: true,
+    //         maxInstances: 1,
+    //         specs: ['./specs/calculator-spec-async.js'],
+    //     },
+    //     {
+    //         "browserName": "firefox",
+    //         "count": 1,
+    //         specs: ['./specs/calculator-spec-async.js'],
+    //     }],
 
-
+    capabilities: {
+        "browserName": "chrome",
+        "count": 1,
+        //specs: ["./specs/google-specs/google_*.js"]
+    },
 
     framework: "jasmine",
 
     getPageTimeout: 10000,
     allScriptsTimeout: 10000,
-    baseUrl: 'http://juliemr.github.io',
+    baseUrl: 'https://juliemr.github.io',
 
-    specs: ['./specs/test_spec.js'],
-    //specs: ['./specs/google.*.js'],
-
-    capabilities: {
-        "browserName": "chrome",
-        //"count": 2,
+    specs: ['./specs/calculator-specs/calculator-spec-allure.js'],
+    suites: {
+        calculator: ['specs/calculator-specs/*-spec-1.js', 'specs/calculator-specs/*-spec-2.js'],
+        google: ['specs/google-specs/google_*.js']
     },
 
     jasmineNodeOpts: {
@@ -132,20 +143,20 @@ exports.config = {
 // ---------- Integration with Mocha and Chai
 // http://www.protractortest.org/#/frameworks
 // https://mochajs.org/
-
-
-
+//
+//
+//
 // Узнать новенькое
 // http://automated-testing.info/t/napisanie-testov-na-js-protractor-vopros-udobstva/10690/13
 // CodeceptJs Framework --- https://codecept.io/angular/
-
+//
 // ---- Supertest library for REST API
 // https://github.com/WebDevelopmentClub/book/wiki/Mocha,-Karma-and-Protractor-tests
-
+//
 // ---------- Webdriver IO -----------
 // http://webdriver.io/
-
-
-//Mocha
+//
+//
+// Mocha
 // https://github.com/allure-examples/mocha-allure-example/blob/master/test/webdriver-io.spec.js
 // https://github.com/allure-examples/mocha-allure-example

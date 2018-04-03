@@ -13,7 +13,6 @@ describe('Protractor Calculator Demo Tests', function() {
     });*/
 
 
-
     it('should have a title', function() {
         expect(browser.getTitle()).toEqual('Super Calculator');
     });
@@ -21,10 +20,13 @@ describe('Protractor Calculator Demo Tests', function() {
 
 
     it('should add one and two', function() {
-        element(by.model('first')).sendKeys(1);
-        element(by.model('second')).sendKeys(2);
+        element(by.model('first')).sendKeys(10);
+        $("select[ng-model='operator']").element(by.cssContainingText('option', '%')).click();
+        // The same action
+        // $("select[ng-model='operator']").element(by.css("option[value='MODULO']")).click();
+        element(by.model('second')).sendKeys(100);
         element(by.id('gobutton')).click();
-        expect(element(by.binding('latest')).getText()).toEqual('3');
+        expect(element(by.binding('latest')).getText()).toEqual('10');
     });
 
 

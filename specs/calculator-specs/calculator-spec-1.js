@@ -1,4 +1,4 @@
-let mainPage = require('../pages/MainPage');
+let mainPage = require('../../pages/calculator/CalculatorPageV1');
 
 // Set up Chai matchers
 /*var chai = require('chai');
@@ -19,9 +19,18 @@ describe('Protractor Test without async. functions', function() {
         expect(mainPage.getResult()).toEqual("0");
     });
 
+
+    it('should divide 6 and 3', function() {
+        mainPage.setValues(10, 100);
+        mainPage.selectOption(3);
+        mainPage.pressSubmit();
+        expect(mainPage.getResult()).toEqual('10');
+        expect(browser.getTitle()).toEqual('Super Calculator');
+    });
+
     it('should divide 6 and 3', function() {
         mainPage.setValues(6, 3);
-        mainPage.selectOption(2);
+        mainPage.selectOptionBy('/');
         mainPage.pressSubmit();
         expect(mainPage.getResult()).toEqual('2');
         expect(browser.getTitle()).toEqual('Super Calculator');
@@ -35,17 +44,24 @@ describe('Protractor Test without async. functions', function() {
 
     });
 
-    it('should minus 6 and 3', function() {
-        mainPage.setValues(6, 3);
-        mainPage.selectOption(5);
-        mainPage.pressSubmit();
-        expect(mainPage.getResult()).toEqual('3');
+    it('should show percentage 20 from 200', function() {
+        var result = mainPage.setValues(10, 100)
+            .selectOption(3)
+            .pressSubmit().getResult();
+        expect(result).toEqual('10');
         expect(browser.getTitle()).toEqual('Super Calculator');
 
     });
 
 
-    describe('Operation tests', function(){
+     describe('Operation tests', function(){
+
+
+        it('should divide 6 and 3', function() {
+            mainPage.calculate(6, 3, '*');
+            expect(browser.getTitle()).toEqual('Super Calculator');
+            expect(mainPage.getResult()).toEqual('18');
+        });
 
         it('should add 1 and 5',function() {
             mainPage.add(1, 5);
@@ -61,18 +77,17 @@ describe('Protractor Test without async. functions', function() {
 
         });
 
+        it('should execute several functions', function() {
+             mainPage.add(6, 3);
+             mainPage.calculate(6, 3, '*');
+             expect(browser.getTitle()).toEqual('Super Calculator');
+             expect(mainPage.getResult()).toEqual('18');
+             expect(mainPage.getResults().get(1).getText()).toBe('9');
+             expect(mainPage.getResults().get(0).getText()).toBe('18');
+         });
+
 
     });
-
-
-
-
-
-
-
-
-
-
 
 
 
