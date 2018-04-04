@@ -1,7 +1,7 @@
 const { CalculatorPage } = require("../../pages/calculator/CalculatorPageAllure");
 
 
-describe('Protractor Test without async. functions', function() {
+describe('Protractor Tests With Allure steps', function() {
 
 
     var mainPage;

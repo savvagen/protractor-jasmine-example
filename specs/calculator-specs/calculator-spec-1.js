@@ -70,7 +70,7 @@ describe('Protractor Test without async. functions', function() {
 
         });
 
-        it('should minus 1 and 5',function() {
+        it('should minus 1 and 5', function() {
             mainPage.minus(10, 5);
             expect(mainPage.getResult()).toEqual('5');
             expect(browser.getTitle()).toEqual('Super Calculator');

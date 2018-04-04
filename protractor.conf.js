@@ -2,7 +2,10 @@ var AllureReporter = require('jasmine-allure-reporter');
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 
+
+
 exports.config = {
+
 
     //Running from Selenoid
 
@@ -46,12 +49,12 @@ exports.config = {
 
     //Running from Selenium grid (standalone server)
 
-    // seleniumAddress: "http://localhost:4444/wd/hub",
-    // seleniumPort: '4444',
+    seleniumAddress: "http://localhost:4444/wd/hub",
+    seleniumPort: '4444',
     // seleniumServerJar: './drivers/selenium-server-standalone-3.11.0.jar',
-    directConnect: true,
-    chromeDriver: './drivers/chromedriver',
-    geckoDriver: './drivers/geckodriver',
+    // cleadirectConnect: true,
+    // chromeDriver: './drivers/chromedriver',
+    // geckoDriver: './drivers/geckodriver',
 
 
     // capabilities: {
@@ -106,6 +109,7 @@ exports.config = {
         jasmine.getEnv().addReporter(new AllureReporter({
             resultsDir: 'allure-results'
         }));
+
         jasmine.getEnv().afterEach(function(done){
             browser.takeScreenshot().then(function (png) {
                 allure.createAttachment('Screenshot', function () {

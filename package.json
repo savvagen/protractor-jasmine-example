@@ -18,7 +18,7 @@
     "poststart": "webdriver-manager start",
     "pretest": "npm install",
     "test": "protractor protractor.conf.js",
-    "posttest": "allure generate --clean -o  allure-report",
+    "posttest": "allure generate allure-results --clean -o  allure-report",
     "clean": "rmdir-cli allure-report | rmdir-cli allure-results | rmdir-cli video",
     "start-selenoid": "docker-compose up -d | curl -s aerokube.com/cm/bash | bash && ./cm selenoid start --vnc",
     "stop-selenoid": "docker-compose down",
