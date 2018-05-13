@@ -5,11 +5,9 @@
   "description": "A demo of test-automation on Protracot",
   "repository": "https://github.com/savvagen/protractor-jasmine-example",
   "license": "MIT",
+  "main": "./protractor.conf.js",
   "devDependencies": {
-    "rmdir-cli": "^2.0.6",
-    "eslint": "^4.19.1",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-promise": "^3.7.0"
+    "rmdir-cli": "^2.0.6"
   },
   "scripts": {
     "update-deps": "npm update",

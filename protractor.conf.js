@@ -51,10 +51,10 @@ exports.config = {
 
     seleniumAddress: "http://localhost:4444/wd/hub",
     seleniumPort: '4444',
-    // seleniumServerJar: './drivers/selenium-server-standalone-3.11.0.jar',
-    // cleadirectConnect: true,
-    // chromeDriver: './drivers/chromedriver',
-    // geckoDriver: './drivers/geckodriver',
+    seleniumServerJar: './drivers/selenium-server-standalone-3.11.0.jar',
+    directConnect: false,
+    chromeDriver: './drivers/chromedriver',
+    geckoDriver: './drivers/geckodriver',
 
 
     // capabilities: {
@@ -86,11 +86,12 @@ exports.config = {
 
     framework: "jasmine",
 
-    getPageTimeout: 10000,
-    allScriptsTimeout: 10000,
+    getPageTimeout: 8000,
+    allScriptsTimeout: 8000,
     baseUrl: 'https://juliemr.github.io',
 
-    specs: ['./specs/calculator-specs/calculator-spec-allure.js'],
+    //specs: ['./specs/calculator-specs/calculator-spec-allure.js'],
+    specs: ['./specs/google-specs/email-spec.js'],
     suites: {
         calculator: ['specs/calculator-specs/*-spec-1.js', 'specs/calculator-specs/*-spec-2.js'],
         google: ['specs/google-specs/google_*.js']
@@ -117,6 +118,8 @@ exports.config = {
                 }, 'image/png')();
                 done();
             });
+
+
         });
         jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
         browser.driver.manage().window().setSize(1920, 1080);
@@ -134,6 +137,7 @@ exports.config = {
 
 
 // ---------- Protractor tutorials
+// https://www.npmjs.com/package/protractor-page-objects
 // https://www.protractortest.org/#/tutorial
 // http://stepansuvorov.com/blog/2014/02/angularjs-protractor/
 // https://kurapov.ee/rus/lab/quality_control/frontend/
@@ -144,6 +148,10 @@ exports.config = {
 // ---------- Start with Type Script
 // https://code.tutsplus.com/tutorials/getting-started-with-end-to-end-testing-in-angular-using-protractor--cms-29318
 // http://blog.scottlogic.com/2015/11/06/ProtractorForBeginnersPart1.html
+// https://github.com/angular/protractor/tree/master/exampleTypescript/asyncAwait
+// https://github.com/angular/protractor/blob/master/docs/async-await.md
+// https://www.youtube.com/watch?v=JIGvty1bQxk
+// https://github.com/qualityshepherd/protractor-example
 // ---------- Integration with Mocha and Chai
 // http://www.protractortest.org/#/frameworks
 // https://mochajs.org/
@@ -164,3 +172,4 @@ exports.config = {
 // Mocha
 // https://github.com/allure-examples/mocha-allure-example/blob/master/test/webdriver-io.spec.js
 // https://github.com/allure-examples/mocha-allure-example
+

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 
 describe('Google test_jasmine', function() {
@@ -16,8 +17,6 @@ describe('Google test_jasmine', function() {
             }, 'image/png')();
         })
     });*/
-
-
 
 
     it('should search', function () {
