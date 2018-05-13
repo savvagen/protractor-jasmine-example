@@ -137,6 +137,7 @@ exports.config = {
 
 
 // ---------- Protractor tutorials
+// http://techblog.poppulo.com/removing-sleeps-from-your-angularjs-protractor-tests/
 // https://www.npmjs.com/package/protractor-page-objects
 // https://www.protractortest.org/#/tutorial
 // http://stepansuvorov.com/blog/2014/02/angularjs-protractor/
